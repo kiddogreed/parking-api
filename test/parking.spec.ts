@@ -5,7 +5,6 @@ import test from 'japa'
 
 const BASE_URL = `http://127.0.0.1:3333/base`
 const testid = 1
-const testname = 'testname'
 test.group('http request', () => {
 
   test('base URL',(assert)=>{
@@ -40,15 +39,15 @@ test.group('http request', () => {
 
   test(`PUT UPDATE /parking/${testid}`, async (assert) => {
     const cars = await Car.find(testid)
-    cars.status = "UN-PARKED"
-    cars.save()
-    assert.equal(cars.status ,"UN-PARKED")   
+    cars!.status = "UN-PARKED"
+    cars!.save()
+    assert.equal(cars!.status ,"UN-PARKED")   
   })
 
   test(`DELETE DESTROY /parking/${testid}`, async (assert) => {
     const cars = await Car.find(testid)
-    cars.delete() 
-    assert.equal(cars.id ,testid)
+    cars!.delete() 
+    assert.equal(cars!.id ,testid)
   })
 
 
