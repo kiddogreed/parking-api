@@ -29,4 +29,8 @@ export default Env.rules({
 	MYSQL_PASSWORD: Env.schema.string.optional(),
 	MYSQL_DB_NAME: Env.schema.string(),
 
+	MONGODB_CONNECTION: Env.schema.string(),
+	MONGODB_URL: Env.schema.string(),
+	MONGODB_DATABASE: Env.schema.string(),
+
 })

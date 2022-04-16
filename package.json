@@ -23,6 +23,7 @@
     "@adonisjs/core": "^5.7.3",
     "@adonisjs/lucid": "^17.2.0",
     "@adonisjs/repl": "^3.1.10",
+    "@zakodium/adonis-mongodb": "^0.13.0",
     "adonis-kvn-response": "^2.0.2",
     "luxon": "^2.3.1",
     "mysql": "^2.18.1",

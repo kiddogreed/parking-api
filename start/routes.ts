@@ -20,6 +20,9 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
+Route.get('/',  async () => {
+  return { Message: 'Welcome to xyz corp. Parking lot' }
+})
 Route.get('/base', async () => {
   return { Message: 'Welcome to xyz corp. Parking lot' }
 })
