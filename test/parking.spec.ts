@@ -3,13 +3,13 @@ import test from 'japa'
 
 
 
-const BASE_URL = `http://127.0.0.1:3333`
+const BASE_URL = `http://127.0.0.1:3333/base`
 const testid = 1
 const testname = 'testname'
 test.group('http request', () => {
 
   test('base URL',(assert)=>{
-    assert.equal('http://127.0.0.1:3333',BASE_URL)
+    assert.equal('http://127.0.0.1:3333/base',BASE_URL)
   })
 
 
