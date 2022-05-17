@@ -20,7 +20,7 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/base', async () => {
+Route.get('/', async () => {
   return { Message: 'Welcome to xyz corp. Parking lot' }
 })
 Route.resource('parking','ParkingsController').apiOnly()
