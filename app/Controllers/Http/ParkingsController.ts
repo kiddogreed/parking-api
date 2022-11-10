@@ -12,31 +12,32 @@ export default class ParkingsController {
     const filters = request.only(["entrance", "slot_type", "vehicle_type",'keyword', 'status']);
     const meta = request.only(["page", "per_page"]);
 
+    //handle exception when there is no data yet on db
     try {
 
       
-    const querys = Car.query()
-    if (filters.entrance) {
-      querys.where('entrance', filters.entrance)
-    }
-    if (filters.slot_type) {
-      querys.where('slot_type', filters.slot_type)
-    }
-    if (filters.vehicle_type) {
-      querys.where('vehicle_type', filters.vehicle_type)
-    }
-    if (filters.status) {
-      querys.where('status', filters.status)
-    }
-    if (filters.keyword) {
-      querys.where('entrance', 'like', `%${filters.keyword}%`)
-    }
-    const data = await querys.orderBy('id','desc')  
-    .paginate(meta.page, meta.per_page)
-    return response.ok({
-      message:"ok",
-      parked_cars:data
-    })
+      const querys = Car.query()
+      if (filters.entrance) {
+        querys.where('entrance', filters.entrance)
+      }
+      if (filters.slot_type) {
+        querys.where('slot_type', filters.slot_type)
+      }
+      if (filters.vehicle_type) {
+        querys.where('vehicle_type', filters.vehicle_type)
+      }
+      if (filters.status) {
+        querys.where('status', filters.status)
+      }
+      if (filters.keyword) {
+        querys.where('entrance', 'like', `%${filters.keyword}%`)
+      }
+      const data = await querys.orderBy('id','desc')  
+      .paginate(meta.page, meta.per_page)
+      return response.ok({
+        message:"ok",
+        parked_cars:data
+      })
       
     } catch (error) {
       
