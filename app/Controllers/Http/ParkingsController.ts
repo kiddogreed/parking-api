@@ -11,6 +11,10 @@ export default class ParkingsController {
   public async index({response,request}:HttpContextContract){
     const filters = request.only(["entrance", "slot_type", "vehicle_type",'keyword', 'status']);
     const meta = request.only(["page", "per_page"]);
+
+    try {
+
+      
     const querys = Car.query()
     if (filters.entrance) {
       querys.where('entrance', filters.entrance)
@@ -33,6 +37,13 @@ export default class ParkingsController {
       message:"ok",
       parked_cars:data
     })
+      
+    } catch (error) {
+      
+      return response.notFound({
+        "message":"Request Not found"
+      })
+    }
   }
 
   public async show({params, response}:HttpContextContract){
